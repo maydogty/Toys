@@ -14,6 +14,17 @@ public class ToyAdapter extends RecyclerView.Adapter<ToyAdapter.ToyHolder>
     private Context context;
     private Toys toys;
     private int single_toy_layout;
+    private OnItemClickListener listener;
+    private OnItemLongClickListener longListener;
+
+    public ToyAdapter(Context context, Toys toys, int single_toy_layout)
+    {
+        this.context = context;
+        this.toys = toys;
+        this.single_toy_layout = single_toy_layout;
+        this.listener = listener;
+        this.longListener = longListener;
+    }
 
 
     @NonNull
@@ -51,7 +62,7 @@ public class ToyAdapter extends RecyclerView.Adapter<ToyAdapter.ToyHolder>
         public String txtName;
         public String txtPrice;
 
-        public ToyHolder(@Nonnull View itemView)
+        public ToyHolder(View itemView)
         {
             super(itemView);
 
@@ -60,6 +71,13 @@ public class ToyAdapter extends RecyclerView.Adapter<ToyAdapter.ToyHolder>
         }
     }
 
+    public interface OnItemClickListener
+    {
+        public void onItemClicked(Toy toy);
+    }
 
-
+    public interface OnItemLongClickListener
+    {
+        public boolean onItemLongClicked(Toy toy);
+    }
 }

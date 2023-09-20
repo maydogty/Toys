@@ -2,6 +2,16 @@ package il.com.noa.toys;
 
 public class Toy
 {
+    private String name;
+    private double price;
+
+    public Toy(){}
+
+    public Toy(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
+
     public String getName() {
         return name;
     }
@@ -18,6 +28,5 @@ public class Toy
         this.price = price;
     }
 
-    private String name;
-    private double price;
+
 }
